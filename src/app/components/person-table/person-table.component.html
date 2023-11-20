@@ -1,0 +1,32 @@
+<div class="app-person-table" cdkVirtualScrollingElement>
+  <cdk-virtual-scroll-viewport
+    [itemSize]="itemSize"
+    (scrolledIndexChange)="onScrollIndexChange()"
+    class="h-100">
+    <div class="app-person-table__header">
+      <div class="app-person-table__cell">
+        <strong>
+          {{ '#' }}
+          {{ '(total ' + count + ')' }}
+        </strong>
+      </div>
+      <div class="app-person-table__cell"><strong>{{ 'First name' }}</strong></div>
+      <div class="app-person-table__cell"><strong>{{ 'Last name' }}</strong></div>
+      <div class="app-person-table__cell"><strong>{{ 'Sex' }}</strong></div>
+      <div class="app-person-table__cell"><strong>{{ 'Email' }}</strong></div>
+      <div class="app-person-table__cell"><strong>{{ 'Phone' }}</strong></div>
+      <div class="app-person-table__cell"><strong>{{ 'Birth date' }}</strong></div>
+      <div class="app-person-table__cell"><strong>{{ 'Job title' }}</strong></div>
+    </div>
+    <div *cdkVirtualFor="let person of persons; trackBy: trackById" class="app-person-table__row">
+      <div class="app-person-table__cell">{{ person.index }}</div>
+      <div class="app-person-table__cell">{{ person.firstName }}</div>
+      <div class="app-person-table__cell">{{ person.lastName }}</div>
+      <div class="app-person-table__cell">{{ person.sex }}</div>
+      <div class="app-person-table__cell">{{ person.email }}</div>
+      <div class="app-person-table__cell">{{ person.phone }}</div>
+      <div class="app-person-table__cell">{{ person.birthDate | date }}</div>
+      <div class="app-person-table__cell">{{ person.jobTitle }}</div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
